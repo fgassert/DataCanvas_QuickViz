@@ -6,16 +6,44 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="corslite.js"></script>
 <style>
-html, body, #chart {
+html, body {
 margin:0;
 width:100%;
 height:100%;
+font-family:'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+#legend {
+  list-style: none;
+  position: absolute;
+  right: 8px;
+  top: 0;
+}
+#legend li {
+  display: block;
+  padding-left: 30px;
+  position: relative;
+  margin-bottom: 4px;
+  padding: 2px 8px 2px 28px;
+  font-size: 14px;
+  cursor: default;
+}
+#legend li span {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
 }
 </style>
 </head>
 <body>
-  <h1>Dust measurements</h1>
+  <h1>Real time data stream</h1>
+  <div style="margin:10px">
 	<canvas id="chart"></canvas>
+	<div id="legend"></div>
+</div>
 	<script src="Chart.js"></script>
 	<script src="quick.js"></script>
 </body>
