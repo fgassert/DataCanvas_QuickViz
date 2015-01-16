@@ -57,6 +57,14 @@ var chart = (function() {
 		pointStrokeColor: "#fff",
 		pointHighlightFill: "#fff",
 		pointHighlightStroke: "rgba(220,220,220,1)",
+		data: []},
+		{label:'Air quality',
+		fillColor: "rgba(180,200,220,0.2)",
+		strokeColor: "rgba(180,200,220,1)",
+		pointColor: "rgba(180,200,220,1)",
+		pointStrokeColor: "#fff",
+		pointHighlightFill: "#fff",
+		pointHighlightStroke: "rgba(220,220,220,1)",
 		data: []}]};
 	for (var i=0; i<obj.length; i++) {
 	    var d = Date.parse(obj[obj.length-i-1].timestamp);
@@ -67,6 +75,7 @@ var chart = (function() {
 	    data.datasets[3].data[i] = obj[obj.length-i-1].data.sound/10;
 	    data.datasets[4].data[i] = obj[obj.length-i-1].data.uv;
 	    data.datasets[5].data[i] = obj[obj.length-i-1].data.light;
+	    data.datasets[6].data[i] = obj[obj.length-i-1].data.airquality_raw;
 	};
 	if (c === undefined) {
 	    c = new Chart(ctx).Line(data,{responsive:true,
@@ -84,7 +93,8 @@ var chart = (function() {
 			      data.datasets[2].data[i],
 			      data.datasets[3].data[i],
 			      data.datasets[4].data[i],
-			      data.datasets[5].data[i]
+			      data.datasets[5].data[i],
+			      data.datasets[6].data[i]
 			      ], data.labels[i]);
 		};
 	    };
